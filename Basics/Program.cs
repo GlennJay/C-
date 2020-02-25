@@ -20,6 +20,14 @@ namespace Basics
 
     }
 
+    public enum ShippingMethod //good practice to set values when declaring
+    {
+        RegularAirMail = 1,
+        RegisteredAirMail = 2,
+        Express = 3
+    
+    }
+
 
 
     class Program
@@ -48,13 +56,24 @@ namespace Basics
             Console.WriteLine("But didn't like being " + characterAge);
             Console.WriteLine("He wished he could be " + characterWishedAge); */
 
-            //SECTION 4 non primitve types
-            //classes
-            var john = new Person();
-            john.firstName = "John";
-            john.lastName = "Smith";
-            john.Introduce();
+            //SECTION enums
+            //int conversion
+            var method = ShippingMethod.Express;
+            Console.WriteLine((int)method); //casting to a number
+            Console.WriteLine(method); //shows the string since console.writline is by default casting to string
+           
 
+            var methodId = 3;
+            Console.WriteLine((ShippingMethod)methodId);//casting the key which enum inside shipping method
+
+            //string conversion
+            Console.WriteLine(method.ToString());
+
+            //convet string to enum
+            var methodName = "Express";
+
+            //parse string
+            var shippingMethod = (ShippingMethod)Enum.Parse(typeof(ShippingMethod), methodName);
 
             Console.ReadLine(); //stops window from exiting
         }
