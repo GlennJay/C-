@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 /* https://www.youtube.com/watch?v=GhQdlIFylQ8 */
 
 namespace Basics
@@ -26,6 +27,14 @@ namespace Basics
         RegisteredAirMail = 2,
         Express = 3
     
+    }
+
+    public enum Season
+    {
+        Fall,
+        Winter,
+        Spring,
+        Summer
     }
 
 
@@ -74,6 +83,29 @@ namespace Basics
 
             //parse string
             var shippingMethod = (ShippingMethod)Enum.Parse(typeof(ShippingMethod), methodName);
+
+            var season = Season.Fall;
+            
+            switch(season)
+            {
+                case Season.Fall:
+                    Console.WriteLine("it's fall");
+                    break;
+                case Season.Spring:
+                    Console.WriteLine("it's spring");
+                    break;
+                case Season.Summer:
+                    Console.WriteLine("It's summer");
+                    break;
+                case Season.Winter:
+                    Console.WriteLine("it's winter");
+                    break;
+
+
+            }
+
+            
+
 
             Console.ReadLine(); //stops window from exiting
         }
