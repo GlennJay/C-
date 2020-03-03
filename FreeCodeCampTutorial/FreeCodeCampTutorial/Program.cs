@@ -47,7 +47,7 @@ namespace FreeCodeCampTutorial
 
             //ARRAYS
 
-            int[] luckyNumbers = { 6, 7, 29, 49 };
+            /*int[] luckyNumbers = { 6, 7, 29, 49 };
             Console.WriteLine(luckyNumbers[2]);
             string[] friends = new string[3];
 
@@ -67,11 +67,30 @@ namespace FreeCodeCampTutorial
             foreach (string name in friends)
             {
                 Console.WriteLine(name);
-            }
+            }*/
 
+
+            //METHODS, RETURN STATEMENTS
+            sayHello("john");
+
+            Console.WriteLine("lets cube any number you want");
+            double num = Convert.ToDouble( Console.ReadLine());
+
+            Console.WriteLine(cubeNum(num));
 
 
             Console.ReadLine();
         }
+
+        static void sayHello(string name)
+        {
+            Console.WriteLine("Hello " + name);
+        }
+
+        static double cubeNum(double num)
+        {
+            return num * num * num;
+        }
+
     }
 }
