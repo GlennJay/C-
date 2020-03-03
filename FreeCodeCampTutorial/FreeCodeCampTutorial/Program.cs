@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace FreeCodeCamp
+namespace FreeCodeCampTutorial
 {
     class Program
     {
@@ -20,7 +16,7 @@ namespace FreeCodeCamp
             Console.WriteLine(phrase.Substring(11, 3));*/
 
             //NUMBERS
-            
+
             Console.WriteLine("adding a int with a decimal will give a decimal");
             Console.WriteLine("60.5 + 67 = " + (60.5 + 67));
             Console.WriteLine(Math.Abs(-58));
@@ -29,7 +25,6 @@ namespace FreeCodeCamp
             //left off at 58:26
 
             Console.ReadLine();
-
         }
     }
 }
