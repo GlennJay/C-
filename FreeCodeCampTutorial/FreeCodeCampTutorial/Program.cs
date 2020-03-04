@@ -161,13 +161,9 @@ namespace FreeCodeCampTutorial
             //INTRO TO CLASSES AND OBJECTS
             //dogs for example
             Canine dog1 = new Canine();
-            Console.WriteLine("what is your dogs name?");
-            dog1.dogName = Console.ReadLine();
 
-            Console.WriteLine("what is the breed of {0}", dog1.dogName);
-            dog1.dogBreed = Console.ReadLine();
-
-            Console.WriteLine("Enter {0}'s age, weight,");
+            dog1.GetDogInfo();
+            dog1.DisplayDogInfo();
 
 
 
