@@ -71,7 +71,7 @@ namespace FreeCodeCampTutorial
 
 
             //METHODS, RETURN STATEMENTS
-            sayHello("john");
+            /*sayHello("john");
 
             Console.WriteLine("lets cube any number you want");
             double num = Convert.ToDouble( Console.ReadLine());
@@ -90,7 +90,87 @@ namespace FreeCodeCampTutorial
         static double cubeNum(double num)
         {
             return num * num * num;
-        }
+        }*/
 
+
+            //2D ARRAY
+            /*int[,] numberGrid =
+            {
+                {1,2,3 },
+                {4,5,6 },
+                {7,8,9 }
+            };
+
+            //by specifying just the size
+            int[,] secondArray = new int [2, 2];
+
+            Console.WriteLine(numberGrid[1,1]);//print the number 5
+            int rowLength = secondArray.GetLength(0);
+            int colLength = secondArray.GetLength(1);
+            Console.WriteLine("row " + rowLength);
+            Console.WriteLine("col " + colLength);
+            int indexNum = 0;
+
+            for (int i = 0; i < rowLength; i++)
+            {
+                for(int j = 0; j < colLength; j++)
+                {
+                    
+                    secondArray[i, j] = indexNum;
+                    indexNum++;
+                    
+                }
+            }
+
+            foreach(int i in secondArray)
+            {
+                Console.WriteLine("{0}", i);
+            }*/
+
+
+
+            //EXCEPTION HANDLING use a try catch block
+            //example is with dividing by 0 or entering a string
+            /*try
+            {
+                Console.WriteLine("enter a number ");
+                int num1 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter 2nd number ");
+                int num2 = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine(num1 / num2);
+            }
+            catch(DivideByZeroException e) //specific for divide by zero
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch(FormatException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch(Exception e) //Exception is a data type that will be used
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                Console.WriteLine("finally always run");
+            }*/
+            
+
+            //INTRO TO CLASSES AND OBJECTS
+
+
+
+
+
+
+
+
+
+
+            Console.ReadLine();
+
+        }
     }
 }
