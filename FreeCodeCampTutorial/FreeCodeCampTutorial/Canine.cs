@@ -64,7 +64,7 @@ namespace FreeCodeCampTutorial
             Console.WriteLine(dogAge);
             Console.WriteLine(dogHeightFeet + "'" + dogHeightInches);
             Console.WriteLine(dogWeight);
-            Console.WriteLine(dogIDNum);
+            Console.WriteLine(DogID);
         }
 
 
@@ -78,7 +78,7 @@ namespace FreeCodeCampTutorial
                 }
                 else
                 {
-                    Console.WriteLine("Invalid ID number for the dog");
+                    dogIDNum = 0; //this should be a default value or another validation
                 }
             }
         }
