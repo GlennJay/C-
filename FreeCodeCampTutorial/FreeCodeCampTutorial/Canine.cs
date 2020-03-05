@@ -12,6 +12,25 @@ namespace FreeCodeCampTutorial
         public int dogHeightFeet;
         public int dogHeightInches;
         public int dogWeight;
+        private int dogIDNum;
+
+        //Canine constructor
+        public Canine(string canineName, string canineBreed, int canineAge, int canineHeightFeet, int canineHeightInches, int canineWeight, int canineIDNum)
+        {
+            dogName = canineName;
+            dogBreed = canineBreed;
+            dogAge = canineAge;
+            dogHeightFeet = canineHeightFeet;
+            dogHeightInches = canineHeightInches;
+            dogWeight = canineWeight;
+            DogID = canineIDNum;
+
+        }
+
+        public Canine() // constructor to allow user input for Canine
+        {
+
+        }
 
         public void GetDogInfo()
         {
@@ -32,6 +51,9 @@ namespace FreeCodeCampTutorial
 
             Console.WriteLine("Enter {0}'s weight in pound whole numbers ", dogName);
             dogWeight = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Also finally what is the ID of {0}", dogName);
+            DogID = Convert.ToInt32(Console.ReadLine());
         }
 
 
@@ -42,6 +64,23 @@ namespace FreeCodeCampTutorial
             Console.WriteLine(dogAge);
             Console.WriteLine(dogHeightFeet + "'" + dogHeightInches);
             Console.WriteLine(dogWeight);
+            Console.WriteLine(dogIDNum);
+        }
+
+
+        public int DogID //getter and setter
+        {
+            get { return dogIDNum; }
+            set { 
+                if(value >= 1 && value <= 100)
+                {
+                    dogIDNum = value;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid ID number for the dog");
+                }
+            }
         }
 
 

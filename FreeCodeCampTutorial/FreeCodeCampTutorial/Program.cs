@@ -158,12 +158,15 @@ namespace FreeCodeCampTutorial
             }*/
 
 
-            //INTRO TO CLASSES AND OBJECTS
+            //INTRO TO CLASSES AND OBJECTS with getters and setters
             //dogs for example
             Canine dog1 = new Canine();
+            Canine dog2 = new Canine("Good Boy", "rotty", 2, 3, 11, 200, 55);
 
             dog1.GetDogInfo();
             dog1.DisplayDogInfo();
+            dog2.DisplayDogInfo();
+
 
 
 
