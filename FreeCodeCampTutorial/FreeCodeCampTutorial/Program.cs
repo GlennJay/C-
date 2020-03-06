@@ -160,12 +160,22 @@ namespace FreeCodeCampTutorial
 
             //INTRO TO CLASSES AND OBJECTS with getters and setters
             //dogs for example
-            Canine dog1 = new Canine();
+            /*Canine dog1 = new Canine();
             Canine dog2 = new Canine("Good Boy", "rotty", 2, 3, 11, 200, 55);
 
             dog1.GetDogInfo();
             dog1.DisplayDogInfo();
-            dog2.DisplayDogInfo();
+            dog2.DisplayDogInfo();*/
+
+            //Inheritance
+            Chef chef = new Chef(); //super class
+            chef.MakeChicken();
+            chef.MakeSpecial();
+             
+            ItalianChef italianChef = new ItalianChef(); //sub class that inherets from the super class
+            italianChef.MakeChicken();
+            italianChef.MakePasta();
+            italianChef.MakeSpecial();
 
 
 
