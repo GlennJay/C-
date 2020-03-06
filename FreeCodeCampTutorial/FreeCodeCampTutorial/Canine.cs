@@ -13,7 +13,7 @@ namespace FreeCodeCampTutorial
         public int dogHeightInches;
         public int dogWeight;
         private int dogIDNum;
-
+        public static int dogCount; //this is not unique based off of the object, it will be the same throughout the class
         //Canine constructor
         public Canine(string canineName, string canineBreed, int canineAge, int canineHeightFeet, int canineHeightInches, int canineWeight, int canineIDNum)
         {
@@ -24,6 +24,7 @@ namespace FreeCodeCampTutorial
             dogHeightInches = canineHeightInches;
             dogWeight = canineWeight;
             DogID = canineIDNum;
+            dogCount++;
 
         }
 
@@ -54,6 +55,7 @@ namespace FreeCodeCampTutorial
 
             Console.WriteLine("Also finally what is the ID of {0}", dogName);
             DogID = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(dogCount);
         }
 
 
