@@ -10,7 +10,14 @@ namespace GradingSystem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
+
+            Student john = new Student("John", 9);
+            john.setEnglishGrades();
+            john.getEnglishGrades();
+            
+
+            Console.ReadLine();
         }
     }
 }
