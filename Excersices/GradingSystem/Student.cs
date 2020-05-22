@@ -12,20 +12,27 @@ namespace GradingSystem
         //student grade level
         public int gradeLevel;
 
-        //student GPA
-        public float studentGpa;
+        
+
+        //student grade average
+        public int gradeAverage;
 
         //Math grades
         public int[] mathGrades;
+        //student letter grade
+        public string mathGrade;
 
         //Science grades
         public int[] scienceGrades;
+        public string scienceGrade;
 
         //English grades
         public int[] englishGrades;
+        public string englishGrade;
 
         //History grades
         public int[] historyGrades;
+        public string historyGrade;
 
 
         //Student Constructor
@@ -72,7 +79,7 @@ namespace GradingSystem
             Console.WriteLine("How many scores do you need to enter {0}", name);
             numberOfGrades = Convert.ToInt32(Console.ReadLine());
 
-            mathGrades = new int[numberOfGrades];
+            scienceGrades = new int[numberOfGrades];
 
             Console.WriteLine("Please enter the Math grades for {0}", name);
 
@@ -103,7 +110,7 @@ namespace GradingSystem
 
             englishGrades = new int[numberOfGrades];
 
-            Console.WriteLine("Please enter the Math grades for {0}", name);
+            Console.WriteLine("Please enter the English grades for {0}", name);
 
             for (int i = 0; i < englishGrades.Length; i++)
             {
@@ -152,6 +159,96 @@ namespace GradingSystem
             }
         }
 
+        //Calculate letter grade
+        public void CalculateGrade()
+        {
+            string course;
+            int sumOfGrades = 0;
+            
+
+            //ask for which class to calculate
+            Console.WriteLine("Which course would you like to get the final grade for: {0} {1} {2} {3} ", "history", "math", "science", "english");
+            course = Console.ReadLine();
+
+            //calculate grade
+            if(course == "history")
+            {
+                foreach(int grade in historyGrades)
+                {
+                    sumOfGrades = sumOfGrades + grade;
+                }
+                gradeAverage = sumOfGrades / historyGrades.Length;
+                historyGrade = getLetterGrade();
+
+            }
+            else if (course == "math")
+            {
+                foreach (int grade in mathGrades)
+                {
+                    sumOfGrades = sumOfGrades + grade;
+                }
+                gradeAverage = sumOfGrades / mathGrades.Length;
+                mathGrade = getLetterGrade();
+            }
+            else if (course == "science")
+            {
+                foreach (int grade in scienceGrades)
+                {
+                    sumOfGrades = sumOfGrades + grade;
+                }
+                gradeAverage = sumOfGrades / scienceGrades.Length;
+                scienceGrade = getLetterGrade();
+            }
+            else if (course == "english")
+            {
+                foreach (int grade in englishGrades)
+                {
+                    sumOfGrades = sumOfGrades + grade;
+                }
+                gradeAverage = sumOfGrades / englishGrades.Length;
+                englishGrade = getLetterGrade();
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid selection");
+            }
+            
+        }
+
+        //set alphabetical grade
+        public string getLetterGrade()
+        {
+            string studentGrade = "";
+
+            if(gradeAverage >= 90)
+            {
+                studentGrade = "A";
+            }else if (gradeAverage >= 80 && gradeAverage <= 89)
+            {
+                studentGrade = "B";
+            }else if (gradeAverage >= 70 && gradeAverage <= 79)
+            {
+                studentGrade = "C";
+            }else if (gradeAverage >= 60 && gradeAverage <= 69)
+            {
+                studentGrade = "D";
+            }else if (gradeAverage <= 59)
+            {
+                studentGrade = "F";
+            }
+            return studentGrade;
+        }
+
+        //Display student grades for all classes and final grade for each
+        public void FinalReport()
+        {
+            Console.WriteLine("Report Card for {0}", name);
+            Console.Write("Final grade for English is " + englishGrade);
+            getEnglishGrades();
+
+        }
+
+        //display menu 
 
 
     }
