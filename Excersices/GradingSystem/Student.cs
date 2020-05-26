@@ -36,7 +36,10 @@ namespace GradingSystem
 
 
         //Student Constructor
-        public Student(){
+        public Student()
+        {
+            name = "John";
+            gradeLevel = 9;
         }
         public Student(String studentName , int studentGradeLevel)
         {

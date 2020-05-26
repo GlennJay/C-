@@ -9,9 +9,9 @@ namespace GradingSystem
 {
     class Program
     {
-        int numberOfStudents = 10;
-        Student[] students = new Student[numberOfStudents];
-        String[] courses = new string[]{"Science", "Math", "History", "English"};
+        static int numberOfStudents = 10;
+        static Student[] students = new Student[numberOfStudents];
+        static String[] courses = new string[]{"Science", "Math", "History", "English"};
 
         static void Main(string[] args)
         {
@@ -52,7 +52,7 @@ namespace GradingSystem
             {
                 //option to create a student
                 case 1:
-                    var student = new Student();
+                    Student student = new Student();
                     Console.WriteLine("What is the name of the student you want to enter?");
                      student.name = Console.ReadLine();
 
