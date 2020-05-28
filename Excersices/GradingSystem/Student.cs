@@ -12,6 +12,9 @@ namespace GradingSystem
         //student grade level
         public int gradeLevel;
 
+        //student classes
+        public String[] attendedClasses;
+
         
 
         //student grade average
@@ -38,8 +41,8 @@ namespace GradingSystem
         //Student Constructor
         public Student()
         {
-            name = "John";
-            gradeLevel = 9;
+            name = "empty";
+            gradeLevel = 0;
         }
         public Student(String studentName , int studentGradeLevel)
         {
@@ -68,12 +71,20 @@ namespace GradingSystem
         //get Math grades
         public void getMathGrades()
         {
-            Console.WriteLine("The current grades for {0} are as follows:", name);
-
-            foreach(int grade in mathGrades)
+            
+            if(mathGrades != null)
             {
-                Console.WriteLine(grade);
+                foreach (int grade in mathGrades)
+                {
+                    Console.WriteLine("The current grades for {0} are as follows:", name);
+                    Console.WriteLine(grade);
+                }
             }
+            else
+            {
+                Console.WriteLine("Sorry this student does not have any grades entered");
+            }
+            
         }
 
         //set Science grades
@@ -97,12 +108,19 @@ namespace GradingSystem
         //get science grades
         public void getScienceGrades()
         {
-            Console.WriteLine("The current grades for {0} are as follows:", name);
-
-            foreach (int grade in scienceGrades)
+            if(scienceGrades != null)
             {
-                Console.WriteLine(grade);
+                Console.WriteLine("The current grades for {0} are as follows:", name);
+                foreach (int grade in scienceGrades)
+                {
+                    Console.WriteLine(grade);
+                }
             }
+            else
+            {
+                Console.WriteLine("Sorry this student does not have any grades entered");
+            }
+            
         }
 
         //set english grades
@@ -126,12 +144,19 @@ namespace GradingSystem
         //get english grades
         public void getEnglishGrades()
         {
-            Console.WriteLine("The current grades for {0} are as follows:", name);
-
-            foreach (int grade in englishGrades)
+            if(englishGrades != null)
             {
-                Console.WriteLine(grade);
+                Console.WriteLine("The current grades for {0} are as follows:", name);
+                foreach (int grade in englishGrades)
+                {
+                    Console.WriteLine(grade);
+                }
             }
+            else
+            {
+                Console.WriteLine("Sorry this student does not have any grades entered");
+            }
+            
         }
 
 
@@ -156,24 +181,31 @@ namespace GradingSystem
         //get history grades
         public void getHistoryGrades()
         {
-            Console.WriteLine("The current grades for {0} are as follows:", name);
-
-            foreach (int grade in historyGrades)
+            if(historyGrades != null)
             {
-                Console.WriteLine(grade);
+                Console.WriteLine("The current grades for {0} are as follows:", name);
+                foreach (int grade in historyGrades)
+                {
+                    Console.WriteLine(grade);
+                }
             }
+            else
+            {
+                Console.WriteLine("Sorry this student does not have any grades entered");
+            }
+            
         }
 
         //Calculate letter grade
-        public void CalculateGrade()
+        public void CalculateGrade(String course)
         {
-            string course;
+            //string course;
             int sumOfGrades = 0;
             
 
             //ask for which class to calculate
-            Console.WriteLine("Which course would you like to get the final grade for: {0} {1} {2} {3} ", "history", "math", "science", "english");
-            course = Console.ReadLine();
+            //Console.WriteLine("Which course would you like to get the final grade for: {0} {1} {2} {3} ", "history", "math", "science", "english");
+            //course = Console.ReadLine();
 
             //calculate grade
             if(course == "history")

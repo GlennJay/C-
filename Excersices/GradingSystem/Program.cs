@@ -47,12 +47,15 @@ namespace GradingSystem
             Console.WriteLine("To create a student enter: 1");
             Console.WriteLine("To enter grades for a student enter: 2");
             int option = Convert.ToInt32(Console.ReadLine());
-            
-            
-            //option to search for a student
+
+            String name;
+            String course;
+            Student FoundStudent;
+
+
             //option to search by class
 
-            switch(option)
+            switch (option)
             {
                 //option to create a student
                 case 1:
@@ -67,13 +70,24 @@ namespace GradingSystem
                     //option to enter grades for specific student
                 case 2:
                     Console.WriteLine("What is the name of the student you want to enter grades for?");
-                    String name = Console.ReadLine();
+                     name = Console.ReadLine();
 
                     Console.WriteLine("What is the name of the course you want to enter grades for?");
-                    String course = Console.ReadLine();
+                    course = Console.ReadLine();
 
-                    Student FoundStudent = FindStudent(name);
+                     FoundStudent = FindStudent(name);
                     FindCourse(course,FoundStudent);
+                    break;
+                case 3://option to search for a student and see their grades
+                    Console.WriteLine("Enter the name of the student you want to get their report.");
+                    name = Console.ReadLine();
+                    FoundStudent = FindStudent(name);
+
+                    Console.WriteLine("Enter the name of the course");
+                    course = Console.ReadLine();
+                    DisplayCourse(course, FoundStudent);
+
+
                     break;
                  default:
                     Console.WriteLine("Not a valid option");
@@ -123,21 +137,25 @@ namespace GradingSystem
                 {
                     case "history":
                         name.setHistoryGrades();
+                        name.CalculateGrade(course);
                         foundCourse = true;
                         break;
 
                     case "science":
                         name.setScienceGrades();
+                        name.CalculateGrade(course);
                         foundCourse = true;
                         break;
 
                     case "math":
                         name.setMathGrades();
+                        name.CalculateGrade(course);
                         foundCourse = true;
                         break;
 
                     case "english":
                         name.setEnglishGrades();
+                        name.CalculateGrade(course);
                         foundCourse = true;
                         break;
 
@@ -152,7 +170,48 @@ namespace GradingSystem
             }
 
         }
-        
+
+        public static void DisplayCourse(String course, Student name)
+        {
+            course = course.ToLower();
+            bool foundCourse = false;
+
+            while (foundCourse == false)
+            {
+                switch (course)
+                {
+                    case "history":
+                        name.getHistoryGrades();
+                        foundCourse = true;
+                        break;
+
+                    case "science":
+                        name.getScienceGrades();
+                        foundCourse = true;
+                        break;
+
+                    case "math":
+                        name.getMathGrades();
+                        foundCourse = true;
+                        break;
+
+                    case "english":
+                        name.getEnglishGrades();
+                        foundCourse = true;
+                        break;
+
+                    default:
+                        Console.WriteLine("Course does not exist");
+                        Console.WriteLine("Enter the correct course: ");
+                        course = Console.ReadLine();
+                        break;
+
+                }
+
+            }
+
+        }
+
 
     }//end of class program
 }//end of namespace
