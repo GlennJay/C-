@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 namespace GradingSystem
 {
+   
     class Program
     {
         static int numberOfStudents = 3;
@@ -15,6 +16,7 @@ namespace GradingSystem
 
         static void Main(string[] args)
         {
+
             //create a student name variable
             String john = "john";
             String mary = "mary";
@@ -32,7 +34,11 @@ namespace GradingSystem
             students[2] = student3;
            
 
-            ShowMainMenu();
+            
+            
+             ShowMainMenu();
+            
+            
            
             
 
@@ -66,6 +72,7 @@ namespace GradingSystem
                     Console.WriteLine("What is the grade that {0} is in?", student.name);
                      student.gradeLevel = Convert.ToInt32(Console.ReadLine());
                     students[0] = student;
+                    EndProgram();
                     break;
                     //option to enter grades for specific student
                 case 2:
@@ -77,6 +84,7 @@ namespace GradingSystem
 
                      FoundStudent = FindStudent(name);
                     FindCourse(course,FoundStudent);
+                    EndProgram();
                     break;
                 case 3://option to search for a student and see their grades
                     Console.WriteLine("Enter the name of the student you want to get their report.");
@@ -86,8 +94,7 @@ namespace GradingSystem
                     Console.WriteLine("Enter the name of the course");
                     course = Console.ReadLine();
                     DisplayCourse(course, FoundStudent);
-
-
+                    EndProgram();
                     break;
                  default:
                     Console.WriteLine("Not a valid option");
@@ -212,6 +219,33 @@ namespace GradingSystem
 
         }
 
+        public static void EndProgram()
+        {
+            String answer;
+            bool isValidEntry = false;
+            
+            while (!isValidEntry)
+            {
+                Console.WriteLine("To return back to the main menu enter: Main Menu");
+                Console.WriteLine("To exit the program enter: Exit");
+                answer = Console.ReadLine();
+                if (answer == "Main Menu")
+                {
+                    ShowMainMenu();
+                    isValidEntry = true;
+                }
+                else if (answer == "Exit")
+                {
+                    isValidEntry = true;
+                    System.Environment.Exit(0);
+                }
+                else
+                {
+                    Console.WriteLine("Invalid entry");
+                }
+            }
+            
+        }
 
     }//end of class program
 }//end of namespace
