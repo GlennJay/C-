@@ -9,10 +9,20 @@ namespace GradingSystem
 {
    
     class Program
-    {
+    {   //declared delegate
+        public delegate void Course(String course, Student name);
+
+        //use delegate as parameter to call as an argument
+        public static void DelegateCourse(String course, Student name, Course callBack)
+        {
+            callBack(course, name);
+        }
+
+
         static int numberOfStudents = 3;
         static Student[] students = new Student[numberOfStudents];
-        static String[] courses = new string[]{"Science", "Math", "History", "English"};
+        static String[] courses = { "Science", "Math", "History", "English"};
+        static String[,] classAttendance;
 
         static void Main(string[] args)
         {
@@ -32,26 +42,39 @@ namespace GradingSystem
             students[0] = student1;
             students[1] = student2;
             students[2] = student3;
-           
+
+            classAttendance = new string[10, 5]; //[row,col]
+
+            int counter = 0;
+
+            for (int i = classAttendance.GetLowerBound(0); i < classAttendance.GetUpperBound(0); i++)
+            {
+                for(int j = classAttendance.GetLowerBound(1); j < classAttendance.GetUpperBound(1); j++)
+                {
+                    
+                   classAttendance[i, j] = "x";
+                    
+                }
+            }
+            classAttendance[0, 0] = courses[0];
+            classAttendance[0, 1] = courses[1];
+            classAttendance[0, 2] = courses[2];
+            classAttendance[0, 3] = courses[3];
 
             
-            
-             ShowMainMenu();
-            
-            
-           
-            
+            ShowMainMenu();
 
-
-            
 
             Console.ReadLine();
         }
          //display menu 
         public static void ShowMainMenu()
         {
+            Console.Clear();
+            
             Console.WriteLine("To create a student enter: 1");
             Console.WriteLine("To enter grades for a student enter: 2");
+            Console.WriteLine("To search for a student and see their grades: 3");
             int option = Convert.ToInt32(Console.ReadLine());
 
             String name;
@@ -65,26 +88,21 @@ namespace GradingSystem
             {
                 //option to create a student
                 case 1:
-                    Student student = new Student();
-                    Console.WriteLine("What is the name of the student you want to enter?");
-                     student.name = Console.ReadLine();
+                    CreateStudent();
 
-                    Console.WriteLine("What is the grade that {0} is in?", student.name);
-                     student.gradeLevel = Convert.ToInt32(Console.ReadLine());
-                    students[0] = student;
-                    EndProgram();
                     break;
-                    //option to enter grades for specific student
+                //option to enter grades for specific student
                 case 2:
                     Console.WriteLine("What is the name of the student you want to enter grades for?");
-                     name = Console.ReadLine();
+                    name = Console.ReadLine();
 
                     Console.WriteLine("What is the name of the course you want to enter grades for?");
                     course = Console.ReadLine();
-
-                     FoundStudent = FindStudent(name);
-                    FindCourse(course,FoundStudent);
-                    EndProgram();
+                    FoundStudent = FindStudent(name);
+                    DelegateCourse(course, FoundStudent, FindCourse);
+                    //FindCourse(course, FoundStudent);
+                    
+                    
                     break;
                 case 3://option to search for a student and see their grades
                     Console.WriteLine("Enter the name of the student you want to get their report.");
@@ -93,16 +111,29 @@ namespace GradingSystem
 
                     Console.WriteLine("Enter the name of the course");
                     course = Console.ReadLine();
-                    DisplayCourse(course, FoundStudent);
-                    EndProgram();
+                    DelegateCourse(course, FoundStudent, DisplayCourse);
+                    //DisplayCourse(course, FoundStudent);
+                    
                     break;
                  default:
                     Console.WriteLine("Not a valid option");
                     break;
             
             }
-        
+            EndProgram();
         }//end of menu
+
+
+        public static void CreateStudent()
+        {
+            Student student = new Student();
+            Console.WriteLine("What is the name of the student you want to enter?");
+            student.name = Console.ReadLine();
+
+            Console.WriteLine("What is the grade that {0} is in?", student.name);
+            student.gradeLevel = Convert.ToInt32(Console.ReadLine());
+            students[0] = student;
+        }
 
         public static Student FindStudent(string name)
         {
@@ -226,12 +257,15 @@ namespace GradingSystem
             
             while (!isValidEntry)
             {
+                
+                Console.WriteLine("\r\n");
                 Console.WriteLine("To return back to the main menu enter: Main Menu");
                 Console.WriteLine("To exit the program enter: Exit");
                 answer = Console.ReadLine();
                 if (answer == "Main Menu")
                 {
                     ShowMainMenu();
+                    
                     isValidEntry = true;
                 }
                 else if (answer == "Exit")

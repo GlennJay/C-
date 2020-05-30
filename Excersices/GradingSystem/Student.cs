@@ -74,9 +74,10 @@ namespace GradingSystem
             
             if(mathGrades != null)
             {
+                Console.WriteLine("The current grades for {0} are as follows:", name);
                 foreach (int grade in mathGrades)
                 {
-                    Console.WriteLine("The current grades for {0} are as follows:", name);
+                    
                     Console.WriteLine(grade);
                 }
             }
